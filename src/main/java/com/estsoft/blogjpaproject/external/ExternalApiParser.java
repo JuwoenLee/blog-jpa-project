@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -22,25 +21,27 @@ public class ExternalApiParser {
         this.blogService = blogService;
     }
 
-    public void parserAndSave() {
+    public List<LinkedHashMap<String, Object>> parse() {
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://jsonplaceholder.typicode.com/posts";
         ResponseEntity<List> response = restTemplate.getForEntity(url, List.class);
+        List<LinkedHashMap<String, Object>> list = null;
 
         if(response.getStatusCode().is2xxSuccessful()) {
             log.info("body : {}", response.getBody());
-            List<LinkedHashMap<String, Object>> list = response.getBody();
-            List<AddArticleRequest> insertList = new ArrayList<>();
-
-            //title, body
-            for(LinkedHashMap<String, Object> map : list) {
-                String title = (String) map.get("title");
-                String content = (String) map.get("body");
-
-                blogService.save(new AddArticleRequest(title, content));
-            }
+            list = response.getBody();
         }
 
+        return list;
     }
 
+    public void save(List<LinkedHashMap<String, Object>> list) {
+        //title, body
+        for(LinkedHashMap<String, Object> map : list) {
+            String title = (String) map.get("title");
+            String content = (String) map.get("body");
+
+            blogService.save(new AddArticleRequest(title, content));
+        }
+    }
 }

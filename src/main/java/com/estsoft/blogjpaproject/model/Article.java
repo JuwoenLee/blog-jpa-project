@@ -5,12 +5,12 @@ import com.estsoft.blogjpaproject.dto.ArticleViewResponse;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @EntityListeners(AuditingEntityListener.class)
@@ -34,6 +34,9 @@ public class Article {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "article")
+    private List<Comment> comments;
 
     @Builder
     public Article(String title, String content) {

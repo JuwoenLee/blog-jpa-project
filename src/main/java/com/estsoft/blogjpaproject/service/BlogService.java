@@ -43,7 +43,7 @@ public class BlogService {
     }
 
     @Transactional
-    public Article updateTitle(Long id, AddArticleRequest request) {
+        public Article updateTitle(Long id, AddArticleRequest request) {
         Article article = findById(id);
         blogRepository.updateTitle(id, request.getTitle());
         return article;

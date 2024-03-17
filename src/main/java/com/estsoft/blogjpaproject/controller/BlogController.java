@@ -4,6 +4,7 @@ import com.estsoft.blogjpaproject.dto.AddArticleRequest;
 import com.estsoft.blogjpaproject.dto.ArticleResponse;
 import com.estsoft.blogjpaproject.model.Article;
 import com.estsoft.blogjpaproject.service.BlogService;
+import com.estsoft.blogjpaproject.service.CommentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +14,11 @@ import java.util.List;
 @RestController
 public class BlogController {
     private final BlogService blogService;
+    private final CommentService commentService;
 
-    public BlogController(BlogService blogService) {
+    public BlogController(BlogService blogService, CommentService commentService) {
         this.blogService = blogService;
+        this.commentService = commentService;
     }
 
     @PostMapping("/api/articles")   // json  { "title": "제목", "content": "내용"}
@@ -43,7 +46,8 @@ public class BlogController {
     // DELETE
     @DeleteMapping("/api/articles/{id}")
     public ResponseEntity<Void> deleteOneArticle(@PathVariable Long id) {
-        blogService.deleteById(id);
+        commentService.deleteByArticleId(id); // 외래키 조건으로 인해 먼저 삭제
+        blogService.deleteById(id); // 댓글 삭제 후 글 삭제
         return ResponseEntity.ok().build();
     }
 
@@ -51,7 +55,6 @@ public class BlogController {
     public ResponseEntity<Article> updateOneArticle(@PathVariable Long id,
                                                     @RequestBody AddArticleRequest request) {
         Article updated = blogService.update(id, request);
-//        Article updated = blogService.updateTitle(id, request);
         return ResponseEntity.ok(updated);
     }
 }
