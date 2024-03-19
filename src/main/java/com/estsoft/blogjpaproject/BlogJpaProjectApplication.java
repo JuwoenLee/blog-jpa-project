@@ -2,6 +2,7 @@ package com.estsoft.blogjpaproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 // JPA Auditing 기능 활성화 => 엔티티 변경 이력 추적

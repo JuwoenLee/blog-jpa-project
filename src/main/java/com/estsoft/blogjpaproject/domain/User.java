@@ -2,10 +2,12 @@ package com.estsoft.blogjpaproject.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,8 +28,11 @@ public class User implements UserDetails {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @CreatedDate
+    private LocalDateTime createdAt;
+
     @Builder
-    public User(String email, String password, String auth) {
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }

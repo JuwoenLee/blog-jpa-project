@@ -32,7 +32,7 @@ public class BlogPageController {
     public String showArticle(@PathVariable Long id, Model model) {
         Article article = blogService.findById(id);
         model.addAttribute("article", article.toViewResponse());
-        return "article";
+        return "articles";
     }
 
     // id 키를 가진 queryParameter 값을 id변수에 매핑(id값이 없을 경우도 있음)
