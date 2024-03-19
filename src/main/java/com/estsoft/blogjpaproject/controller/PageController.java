@@ -1,6 +1,6 @@
 package com.estsoft.blogjpaproject.controller;
 
-import com.estsoft.blogjpaproject.model.Person;
+import com.estsoft.blogjpaproject.domain.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
