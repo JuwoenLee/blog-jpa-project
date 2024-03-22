@@ -17,7 +17,7 @@ public class UserController {
     // "POST /user" -> service() 회원가입 비즈니스 로직
     private final UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/users")
     public String signup(AddUserRequest request) { // form-data
         userService.save(request);  // 회원 가입(저장)
         return "redirect:/login";   // GET /login
