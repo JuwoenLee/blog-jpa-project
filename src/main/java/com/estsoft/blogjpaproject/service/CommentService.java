@@ -1,8 +1,7 @@
 package com.estsoft.blogjpaproject.service;
 
-import com.estsoft.blogjpaproject.dto.AddCommentRequest;
-import com.estsoft.blogjpaproject.model.Article;
-import com.estsoft.blogjpaproject.model.Comment;
+import com.estsoft.blogjpaproject.domain.Article;
+import com.estsoft.blogjpaproject.domain.Comment;
 import com.estsoft.blogjpaproject.repository.BlogRepository;
 import com.estsoft.blogjpaproject.repository.CommentRepository;
 import org.springframework.stereotype.Service;

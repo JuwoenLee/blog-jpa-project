@@ -2,8 +2,7 @@ package com.estsoft.blogjpaproject.controller;
 
 import com.estsoft.blogjpaproject.dto.AddCommentRequest;
 import com.estsoft.blogjpaproject.dto.CommentResponse;
-import com.estsoft.blogjpaproject.model.Article;
-import com.estsoft.blogjpaproject.model.Comment;
+import com.estsoft.blogjpaproject.domain.Comment;
 import com.estsoft.blogjpaproject.service.CommentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

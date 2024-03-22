@@ -1,6 +1,6 @@
 package com.estsoft.blogjpaproject.dto;
 
-import com.estsoft.blogjpaproject.model.Comment;
+import com.estsoft.blogjpaproject.domain.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,9 +1,7 @@
 package com.estsoft.blogjpaproject.dto;
 
-import com.estsoft.blogjpaproject.model.Article;
+import com.estsoft.blogjpaproject.domain.Article;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter

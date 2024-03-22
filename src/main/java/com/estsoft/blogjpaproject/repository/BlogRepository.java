@@ -1,6 +1,6 @@
 package com.estsoft.blogjpaproject.repository;
 
-import com.estsoft.blogjpaproject.model.Article;
+import com.estsoft.blogjpaproject.domain.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,7 +1,7 @@
 package com.estsoft.blogjpaproject.service;
 
 import com.estsoft.blogjpaproject.dto.AddArticleRequest;
-import com.estsoft.blogjpaproject.model.Article;
+import com.estsoft.blogjpaproject.domain.Article;
 import com.estsoft.blogjpaproject.repository.BlogRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

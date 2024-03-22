@@ -1,8 +1,7 @@
 package com.estsoft.blogjpaproject.controller;
 
-import com.estsoft.blogjpaproject.dto.ArticleResponse;
 import com.estsoft.blogjpaproject.dto.ArticleViewResponse;
-import com.estsoft.blogjpaproject.model.Article;
+import com.estsoft.blogjpaproject.domain.Article;
 import com.estsoft.blogjpaproject.service.BlogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -33,7 +32,7 @@ public class BlogPageController {
     public String showArticle(@PathVariable Long id, Model model) {
         Article article = blogService.findById(id);
         model.addAttribute("article", article.toViewResponse());
-        return "article";
+        return "articles";
     }
 
     // id 키를 가진 queryParameter 값을 id변수에 매핑(id값이 없을 경우도 있음)

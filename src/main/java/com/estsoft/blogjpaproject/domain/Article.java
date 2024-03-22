@@ -1,4 +1,4 @@
-package com.estsoft.blogjpaproject.model;
+package com.estsoft.blogjpaproject.domain;
 
 import com.estsoft.blogjpaproject.dto.ArticleResponse;
 import com.estsoft.blogjpaproject.dto.ArticleViewResponse;

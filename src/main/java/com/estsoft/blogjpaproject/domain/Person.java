@@ -1,4 +1,4 @@
-package com.estsoft.blogjpaproject.model;
+package com.estsoft.blogjpaproject.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
