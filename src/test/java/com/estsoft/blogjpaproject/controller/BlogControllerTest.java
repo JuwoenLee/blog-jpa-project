@@ -134,4 +134,6 @@ class BlogControllerTest {
         boolean isSameContent = article.getContent().equals(updatedArticle.getContent());
         Assertions.assertFalse(isSameTitle && isSameContent);
     }
+
+    // 코드 변경 사항 가정 (테스트 코드 삭제)
 }
